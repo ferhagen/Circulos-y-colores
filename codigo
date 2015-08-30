@@ -1,0 +1,65 @@
+float der = 1.5;
+float speed = 5.5;
+int onedirec = 2;
+
+float dery = 7;
+float speedy = 10;
+int onedirecy = 2;
+
+
+void setup () {
+  size (500,500);
+
+}
+
+void draw (){
+
+  //se actualiza la variable der con la formula pos=vel*dir
+  der = der + (speed*onedirec);
+  dery = dery + (speedy*onedirecy);
+  
+  if (der>500 || der<0) {
+    onedirec =onedirec*-1;    
+  }
+  
+  if (dery>500 || dery<0) {
+    onedirecy =onedirecy*-1;  
+  }
+    
+//condicional de la posx si esta entre 50 y 350 color definido
+   if(der>50 && der<350) {
+       fill(0,random(0,255),0);
+     }else     {
+       
+       fill(255,255,00);
+     }
+  //valores de color para la posicion entre 0y50   
+  if(der>0 && der<50) {
+       fill(0,255,random(20,255));
+  }
+//valores de color para la posicion entre350 y 500
+  if(der>350 && der<500) {
+       fill(random(0,255),0,0);
+  }
+  
+  
+//condicionles de color en y
+//condicional de la posy si esta entre 50 y 350 color definido
+   if(dery>80 && der<400) {
+       fill(random(0,255),random(0,255),0);
+     }
+  //valores de color para la posicion entre 0y50   
+  if(dery>0 && dery<80) {
+       fill(0,random(0,255),255);
+  }
+//valores de color para la posicion entre350 y 500
+  if(dery>400 && der<500) {
+       fill(0,0,random(0,255));
+  }
+ println ("esta es der:"+ der); 
+ println ("esta es speed:"+ speed); 
+ println ("esta es onedirec:"+ onedirec); 
+ //dibujo la forma
+ ellipse(der,dery,20,20);
+ 
+}
